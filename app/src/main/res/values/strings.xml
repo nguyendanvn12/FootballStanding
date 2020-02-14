@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Football Standing</string>
+    <string name="pl">Premier League</string>
+    <string name="lg">La Liga</string>
+    <string name="bg">Bundesliga</string>
+    <string name="l1">Ligue 1</string>
+    <string name="seriea">Serie A</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="top_scorer">Top Scorer</string>
+    <string name="standing">Standings</string>
+    <string name="matches">Matches</string>
+</resources>

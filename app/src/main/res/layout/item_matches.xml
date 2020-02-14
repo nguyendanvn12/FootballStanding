@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.text.Html"/>
+        <import type="com.nguyendan.footballstanding.data.model.matches.ParseData"/>
+<variable
+    name="match"
+    type="com.nguyendan.footballstanding.data.model.matches.Match" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_back"
+        android:padding="16dp"
+        android:layout_marginBottom="2dp">
+
+        <TextView
+            android:id="@+id/team_home"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@{match.homeTeam.name}"
+            android:textColor="#444"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="#ED316C"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="4dp"
+            android:paddingHorizontal="12dp">
+
+            <TextView
+                android:id="@+id/team_home_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{ParseData.getScore(match.score.fullTime.homeTeam)}"
+                android:textColor="#444"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0" />
+            <TextView
+                android:id="@+id/mdate"
+                android:text="@{match.utcDate.substring(0,10)}"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/time"
+                app:layout_constraintEnd_toEndOf="@+id/time"
+                app:layout_constraintBottom_toTopOf="@+id/time"
+                android:layout_marginBottom="3dp"/>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/team_away_score"
+                app:layout_constraintStart_toEndOf="@+id/team_home_score"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+            <TextView
+                android:id="@+id/mtime"
+                android:text="@{match.utcDate.substring(11,16)}"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/time"
+                app:layout_constraintEnd_toEndOf="@+id/time"
+                app:layout_constraintTop_toBottomOf="@+id/time"
+                android:layout_marginTop="3dp"/>
+            <TextView
+                android:id="@+id/team_away_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{ParseData.getScore(match.score.fullTime.awayTeam)}"
+                android:textColor="#444"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/team_away"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@{match.awayTeam.name}"
+            android:textColor="#444"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
